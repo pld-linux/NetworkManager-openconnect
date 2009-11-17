@@ -19,6 +19,7 @@ BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libglade2-devel
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 Requires:	NetworkManager >= 0.7.1
 Requires:	openconnect
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
