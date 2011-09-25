@@ -1,15 +1,15 @@
 Summary:	NetworkManager VPN integration for openconnect
 Summary(pl.UTF-8):	Integracja NetworkManagera z openconnect
 Name:		NetworkManager-openconnect
-Version:	0.8.999
+Version:	0.9.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	0d3f70ccf9800030543c67bf3a26e1e0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.9/%{name}-%{version}.tar.xz
+# Source0-md5:	9365c8db9d04b9f6fdb71cbe1febeb76
 URL:		http://projects.gnome.org/NetworkManager/
-BuildRequires:	GConf2-devel
-BuildRequires:	NetworkManager-devel >= 0.8.999
+BuildRequires:	GConf2-devel >= 2.0
+BuildRequires:	NetworkManager-devel >= 2:0.9
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.74
@@ -18,10 +18,13 @@ BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgnome-keyring-devel
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel
+BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	openconnect-devel >= 3.02
 BuildRequires:	pkgconfig
-Requires:	NetworkManager >= 0.8.999
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires:	NetworkManager >= 2:0.9
+Requires:	dbus-glib >= 0.74
 Requires:	openconnect >= 3.02
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,7 +44,8 @@ Integracja NetworkManagera z openconnect.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-static
 %{__make}
 
 %install
@@ -50,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/NetworkManager/*.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/NetworkManager/*.la
 
 %find_lang NetworkManager-openconnect
 
