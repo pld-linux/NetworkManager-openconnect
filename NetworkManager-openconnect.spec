@@ -7,7 +7,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/1.0/%{name}-%{version}.tar.xz
 # Source0-md5:	90e5bdbcf976558a6eb4756fb62b641e
-URL:		http://projects.gnome.org/NetworkManager/
+URL:		https://wiki.gnome.org/Projects/NetworkManager
 BuildRequires:	NetworkManager-devel >= 2:1.0.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
