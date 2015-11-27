@@ -1,12 +1,12 @@
 Summary:	NetworkManager VPN integration for openconnect
 Summary(pl.UTF-8):	Integracja NetworkManagera z openconnect
 Name:		NetworkManager-openconnect
-Version:	1.0.2
+Version:	1.0.8
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/1.0/%{name}-%{version}.tar.xz
-# Source0-md5:	90e5bdbcf976558a6eb4756fb62b641e
+# Source0-md5:	c4d496016bad3f901fccbb571702df32
 URL:		https://wiki.gnome.org/Projects/NetworkManager
 BuildRequires:	NetworkManager-devel >= 2:1.0.0
 BuildRequires:	autoconf >= 2.52
