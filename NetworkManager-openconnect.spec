@@ -2,7 +2,7 @@ Summary:	NetworkManager VPN integration for openconnect
 Summary(pl.UTF-8):	Integracja NetworkManagera z openconnect
 Name:		NetworkManager-openconnect
 Version:	1.2.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/1.2/%{name}-%{version}.tar.xz
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/nm-openconnect-auth-dialog
 %attr(755,root,root) %{_libdir}/nm-openconnect-service
 %attr(755,root,root) %{_libdir}/nm-openconnect-service-openconnect-helper
-%{_libdir}/NetworkManager/VPN/nm-openconnect-service.name
+%{_prefix}/lib/NetworkManager/VPN/nm-openconnect-service.name
 %{_sysconfdir}/NetworkManager/VPN/nm-openconnect-service.name
 %config(noreplace) %verify(not md5 mtime size) /etc/dbus-1/system.d/nm-openconnect-service.conf
 %{_datadir}/appdata/network-manager-openconnect.metainfo.xml
