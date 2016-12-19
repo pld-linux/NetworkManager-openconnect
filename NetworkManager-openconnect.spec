@@ -1,12 +1,12 @@
 Summary:	NetworkManager VPN integration for openconnect
 Summary(pl.UTF-8):	Integracja NetworkManagera z openconnect
 Name:		NetworkManager-openconnect
-Version:	1.2.2
-Release:	2
+Version:	1.2.4
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/1.2/%{name}-%{version}.tar.xz
-# Source0-md5:	51f5c492bb03a34b9d3015ee74972c3f
+# Source0-md5:	c0a5086e495166c52d306132672aa1d3
 URL:		https://wiki.gnome.org/Projects/NetworkManager
 BuildRequires:	NetworkManager-devel >= 2:1.2.0
 BuildRequires:	autoconf >= 2.52
@@ -15,7 +15,7 @@ BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.32
 BuildRequires:	gtk+3-devel >= 3.4
 BuildRequires:	intltool >= 0.35.0
-BuildRequires:	libsecret-devel
+BuildRequires:	libsecret-devel >= 0.18
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	openconnect-devel >= 3.02
@@ -25,6 +25,7 @@ BuildRequires:	xz
 Requires:	NetworkManager >= 2:1.2.0
 Requires:	glib2 >= 1:2.32
 Requires:	gtk+3 >= 3.4
+Requires:	libsecret >= 0.18
 Requires:	openconnect >= 3.02
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,9 +64,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f NetworkManager-openconnect.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog
+%doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_libdir}/NetworkManager/libnm-openconnect-properties.so
 %attr(755,root,root) %{_libdir}/NetworkManager/libnm-vpn-plugin-openconnect.so
+%attr(755,root,root) %{_libdir}/NetworkManager/libnm-vpn-plugin-openconnect-editor.so
 %attr(755,root,root) %{_libdir}/nm-openconnect-auth-dialog
 %attr(755,root,root) %{_libdir}/nm-openconnect-service
 %attr(755,root,root) %{_libdir}/nm-openconnect-service-openconnect-helper
