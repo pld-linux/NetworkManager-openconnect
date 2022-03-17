@@ -1,19 +1,22 @@
+# TODO: GTK4 variant for GNOME42 (--with-gtk4, requires libnma-gtk4 >= 1.8.33)
 Summary:	NetworkManager VPN integration for openconnect
 Summary(pl.UTF-8):	Integracja NetworkManagera z openconnect
 Name:		NetworkManager-openconnect
-Version:	1.2.6
+Version:	1.2.8
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/1.2/%{name}-%{version}.tar.xz
-# Source0-md5:	59c002f02548ae56e9cbabfea178fb44
+Source0:	https://download.gnome.org/sources/NetworkManager-openconnect/1.2/%{name}-%{version}.tar.xz
+# Source0-md5:	8c858ae6f4ba6c0c4931d8a707bb40c6
 URL:		https://wiki.gnome.org/Projects/NetworkManager
 BuildRequires:	NetworkManager-devel >= 2:1.2.0
+BuildRequires:	NetworkManager-gtk-lib-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	gcr-ui-devel >= 3.4
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.32
-BuildRequires:	gtk+3-devel >= 3.4
+BuildRequires:	glib2-devel >= 1:2.34
+BuildRequires:	gtk+3-devel >= 3.12
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libsecret-devel >= 0.18
 BuildRequires:	libtool
@@ -23,8 +26,9 @@ BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	NetworkManager >= 2:1.2.0
-Requires:	glib2 >= 1:2.32
-Requires:	gtk+3 >= 3.4
+Requires:	gcr-ui >= 3.4
+Requires:	glib2 >= 1:2.34
+Requires:	gtk+3 >= 3.12
 Requires:	libsecret >= 0.18
 Requires:	openconnect >= 3.02
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -73,5 +77,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/NetworkManager/VPN/nm-openconnect-service.name
 %config(noreplace) %verify(not md5 mtime size) /etc/dbus-1/system.d/nm-openconnect-service.conf
 %{_datadir}/appdata/network-manager-openconnect.metainfo.xml
-%dir %{_datadir}/gnome-vpn-properties/openconnect
-%{_datadir}/gnome-vpn-properties/openconnect/nm-openconnect-dialog.ui
